@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Becoming Purposeful — Daily Quote Widget</title>
+<meta name="description" content="A new quote on your home screen every day. From @becomingpurposeful.">
+<meta name="theme-color" content="#0a0a0c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%230a0a0c' stroke='%23e8a33d' stroke-width='8'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23f5f0e6' font-family='Georgia,serif' font-weight='bold'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Purposeful">
+<style>
+  :root{
+    --bg:#0a0a0c; --ink:#f5f0e6; --muted:#a39e93; --amber:#e8a33d; --card:#141417; --line:#26262b;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 20px 64px;}
+  header.brand{display:flex; align-items:center; gap:10px; padding:22px 0 6px;}
+  header.brand .dot{width:34px;height:34px;border-radius:50%;border:2px solid var(--amber);
+    display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:bold;}
+  header.brand b{letter-spacing:.14em; font-size:12px; text-transform:uppercase;}
+  header.brand span{color:var(--muted); font-size:12px; margin-left:auto;}
+  .hero{margin:34px 0 10px; padding:38px 30px; background:radial-gradient(120% 140% at 50% 0%, #1b1b20 0%, #101013 60%, #0a0a0c 100%);
+    border:1px solid var(--line); border-radius:20px; text-align:center;}
+  .kicker{color:var(--amber); font-size:12px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:14px;}
+  #today-date{color:var(--muted); font-size:13px; margin-bottom:18px;}
+  #today-quote{font-family:Georgia,"Times New Roman",serif; font-size:clamp(26px,6.4vw,38px);
+    line-height:1.32; margin:0 0 20px;}
+  #today-author{color:var(--amber); font-size:15px; letter-spacing:.06em;}
+  .cta-row{display:flex; gap:10px; justify-content:center; margin-top:26px; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:13px 22px; border-radius:999px; font-weight:700; font-size:15px;
+    text-decoration:none; border:1px solid var(--amber);}
+  .btn.solid{background:var(--amber); color:#14100a;}
+  .btn.ghost{color:var(--amber); background:transparent;}
+  section{margin-top:44px;}
+  h2{font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;}
+  .steps{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:6px 20px 20px; margin-bottom:14px;}
+  .steps h3{font-size:16px; margin:16px 0 8px;}
+  .steps h3 .tag{font-size:11px; color:var(--amber); border:1px solid var(--amber); border-radius:999px;
+    padding:2px 10px; margin-left:8px; vertical-align:2px; letter-spacing:.08em;}
+  .steps ol{margin:8px 0 0; padding-left:20px; color:#d8d2c6; font-size:15px;}
+  .steps ol li{margin:7px 0;}
+  .steps code{background:#000; border:1px solid var(--line); border-radius:6px; padding:2px 7px;
+    font-size:12.5px; color:var(--amber); word-break:break-all;}
+  .note{font-size:13.5px; color:var(--muted); margin-top:10px;}
+  #archive{display:grid; gap:12px;}
+  .qcard{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px;}
+  .qcard p{font-family:Georgia,serif; font-size:17px; margin:0 0 8px; line-height:1.45;}
+  .qcard small{color:var(--amber); font-size:13px; letter-spacing:.04em;}
+  footer{margin-top:56px; text-align:center; color:var(--muted); font-size:13px;}
+  footer a{color:var(--amber); text-decoration:none; font-weight:700;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="brand">
+    <div class="dot">B</div><b>Becoming Purposeful</b>
+    <span>daily quote widget</span>
+  </header>
+
+  <div class="hero">
+    <div class="kicker">Today's Quote</div>
+    <div id="today-date">&nbsp;</div>
+    <p id="today-quote">Keep showing up.</p>
+    <div id="today-author">@becomingpurposeful</div>
+    <div class="cta-row">
+      <a class="btn solid" href="https://instagram.com/becomingpurposeful">Follow on Instagram</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>Get the daily widget</h2>
+
+    <div class="steps">
+      <h3>iPhone — easy <span class="tag">2 MIN</span></h3>
+      <ol>
+        <li>Open this page in <b>Safari</b>.</li>
+        <li>Tap <b>Share</b> → <b>Add to Home Screen</b> → <b>Add</b>.</li>
+        <li>Tap the icon each morning — a new quote is waiting.</li>
+      </ol>
+      <h3>iPhone — true widget <span class="tag">WIDGY</span></h3>
+      <ol>
+        <li>Install the free <b>Widgy</b> app.</li>
+        <li>Create a widget, add a <b>URL</b> text layer pointing to<br><code>https://forgedreams-ai.github.io/purposeful-widget/today.json</code></li>
+        <li>Display the <code>.quote</code> field (and <code>.author</code> underneath). Add the Widgy widget to your home screen.</li>
+      </ol>
+    </div>
+
+    <div class="steps">
+      <h3>Android — easy <span class="tag">2 MIN</span></h3>
+      <ol>
+        <li>Open this page in <b>Chrome</b>.</li>
+        <li>Tap <b>⋮</b> → <b>Add to Home screen</b>.</li>
+        <li>Tap the icon each morning — a new quote is waiting.</li>
+      </ol>
+      <h3>Android — true widget <span class="tag">KWGT</span></h3>
+      <ol>
+        <li>Install the free <b>KWGT</b> app and add a KWGT widget to your home screen.</li>
+        <li>Add a <b>text</b> layer with this formula:<br><code>$wg("https://forgedreams-ai.github.io/purposeful-widget/today.json", json, ".quote")$</code></li>
+        <li>Add a second text layer for the author:<br><code>$wg("https://forgedreams-ai.github.io/purposeful-widget/today.json", json, ".author")$</code></li>
+      </ol>
+      <p class="note">The widget updates itself — every quote we post gets added here, and the quote of the day rotates automatically.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Every quote so far</h2>
+    <div id="archive"></div>
+  </section>
+
+  <footer>
+    Made with purpose by <a href="https://instagram.com/becomingpurposeful">@becomingpurposeful</a><br>
+    Keep showing up. 🙏
+  </footer>
+
+</div>
+<script>
+async function load(){
+  try{
+    const t = await (await fetch('today.json', {cache:'no-store'})).json();
+    document.getElementById('today-quote').textContent = '\u201C' + t.quote + '\u201D';
+    document.getElementById('today-author').textContent = '\u2014 ' + t.author;
+    const d = new Date(t.date + 'T12:00:00');
+    document.getElementById('today-date').textContent =
+      d.toLocaleDateString(undefined, {weekday:'long', month:'long', day:'numeric'});
+  }catch(e){}
+  try{
+    const all = await (await fetch('quotes.json', {cache:'no-store'})).json();
+    const box = document.getElementById('archive');
+    box.innerHTML = '';
+    [...all].reverse().forEach(q=>{
+      const el = document.createElement('div');
+      el.className = 'qcard';
+      const p = document.createElement('p'); p.textContent = '\u201C' + q.text + '\u201D';
+      const s = document.createElement('small'); s.textContent = '\u2014 ' + q.author;
+      el.appendChild(p); el.appendChild(s); box.appendChild(el);
+    });
+  }catch(e){}
+}
+load();
+</script>
+</body>
+</html>
